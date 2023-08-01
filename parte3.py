@@ -14,7 +14,7 @@ pg.font.init()
 font = pg.font.SysFont('Courier New', 50)
 font_rb = pg.font.SysFont('Courier New', 30)
 
-palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA']
+palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA', 'INSPER', 'GIULIA', 'PEDRO', 'GUILHERME']
 
 
 
@@ -71,7 +71,7 @@ def Tentando_uma_letra(tentativas_de_letras, palavra_escolhida, letra, chance):
             chance += 1
         elif letra in tentativas_de_letras:
             pass
-        return tentativas_de_letras, chance
+    return tentativas_de_letras, chance
 
 def Palavra_do_jogo(window, palavra_camuflada):
     palavra = font.render(palavra_camuflada, True, preto)
@@ -89,7 +89,7 @@ def Restart_do_jogo(palavra_camuflada, end_game, chance, letra, tentativas_de_le
             end_game = True
             chance = 0
             letra = ' '
-        return end_game, chance, tentativas_de_letras, letra
+    return end_game, chance, tentativas_de_letras, letra
     
 while True:
     for event in pg.event.get():
@@ -123,6 +123,5 @@ while True:
         click_last_status = False
     pg.display.update()
 
-### PARTE 2
-# partes do boneco
+
 
