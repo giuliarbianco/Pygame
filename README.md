@@ -1,1 +1,1 @@
-# Pygame - Jogo da forca
+# Pygame - jogo da forca
