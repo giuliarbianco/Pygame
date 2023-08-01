@@ -71,7 +71,7 @@ while True:
     # Jogo
     Desenho_da_Forca(window,6)
     Desenho_restart_buttom(window)
-    palavra_escolhida,end_game = Sorteando_Palavra(palavras,palavra_escolhida,end_game)
+    palavra_escolhida,end_game= Sorteando_Palavra(palavras,palavra_escolhida,end_game)
     
 
     pg.display.update()
