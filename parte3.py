@@ -83,14 +83,36 @@ def Restart_do_jogo(palavra_camuflada, end_game, chance, letra, tentativas_de_le
     for n in range(len(palavra_camuflada)):
         if palavra_camuflada[n] != '#':
             count += 1
-    if count == limite and click_last_status == False and click[0] == True:
+    if click_last_status == False and click[0] == True:
         if x >= 700 and x <= 900 and y >= 100 and y <= 165:
             tentativas_de_letras = [' ', '-']
             end_game = True
             chance = 0
             letra = ' '
     return end_game, chance, tentativas_de_letras, letra
-    
+iniciar = True
+while iniciar:
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            pg.quit()
+            quit()
+        if event.type == pg.KEYDOWN:
+            iniciar = False
+    pg.draw.rect(window, branco, (0, 0, 1000, 600))
+    pg.display.update()
+    texto = font_rb.render('Objetivo: Adivinhar uma palavra ou frase antes de um boneco ser desenhado na forca',True,preto)
+    window.blit(texto,(100,75))
+    texto = font_rb.render('Regras: O adversário escolhe a palavra e desenha espaços em branco para cada letra.',True,preto)
+    window.blit(texto,(100,150))
+    texto = font_rb.render('Acertos: Letras corretas são preenchidas nas posições corretas.',True,preto)
+    window.blit(texto,(100,225))
+    texto = font_rb.render('Erros: Letras erradas são listadas e uma parte do boneco enforcado é desenhada.',True,preto)
+    window.blit(texto,(100,300))
+    texto = font_rb.render('Vitória: O jogador ganha se adivinhar a palavra antes do boneco estar completo.',True,preto)
+    window.blit(texto,(100,375))
+    texto = font_rb.render('Derrota: O jogador perde se o boneco estiver desenhado antes da palavra ser adivinhada.',True,preto)
+    window.blit(texto,(100,450))
+   
 while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -117,11 +139,19 @@ while True:
     Palavra_do_jogo(window, palavra_camuflada)
     end_game, chance, tentativas_de_letras, letra = Restart_do_jogo(palavra_camuflada, end_game, chance, letra, tentativas_de_letras, click_last_status, click, mouse_position_x, mouse_position_y)
     
+    if chance >= 6:
+        print ('PERDEU!')
+        texto = font_rb.render('Você perdeu!',True,preto)
+        window.blit(texto,(550,300))
+        texto = font_rb.render('Aperte restart para tentar novamente',True,preto)
+        window.blit(texto,(350,350))
+    elif '#' not in palavra_camuflada:
+        print ('GANHOU!')
+        texto = font_rb.render('Você ganhou!',True,preto)
+        window.blit(texto,(550,300))
     if click[0] == True:
         click_last_status = True
     else:
         click_last_status = False
     pg.display.update()
-
-
 
