@@ -55,7 +55,7 @@ while True:
             print(letra)
 
     # Jogo
-    Desenho_da_Forca(window,2)
+    Desenho_da_Forca(window,1)
 
     pg.display.update()
 
