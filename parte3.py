@@ -13,8 +13,8 @@ pg.font.init()
 # Escolhendo uma fonte e tamanho
 font = pg.font.SysFont('Courier New', 50)
 font_rb = pg.font.SysFont('Courier New', 30)
-font_inicial = pg.font.SysFont('Courier New', 15)
-palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA', 'INSPER', 'GIULIA', 'PEDRO', 'GUILHERME','CACHORRO', 'BARBIE', 'MACIEL']
+font_inicial = pg.font.SysFont('Courier New', 17)
+palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA', 'INSPER', 'GIULIA', 'PEDRO', 'GUILHERME','CACHORRO', 'BARBIE', 'MACIEL', 'DESSOFT']
 
 
 
@@ -111,6 +111,8 @@ while iniciar:
     window.blit(texto,(100,375))
     texto = font_inicial.render('Derrota: O jogador perde se o boneco estiver desenhado antes da palavra ser adivinhada.',True,preto)
     window.blit(texto,(100,450))
+    texto = font_inicial.render('Aperte ENTER para começar!',True,preto)
+    window.blit(texto,(100,525))
     pg.display.update()
    
 while True:
