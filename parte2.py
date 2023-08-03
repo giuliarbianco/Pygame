@@ -35,15 +35,29 @@ def Desenho_da_Forca(window, chance):
     if chance >= 1:
         pg.draw.circle(window,preto,(300,200),50,10)
     if chance >= 2:
-        pg.draw.circle(window,preto,(300,250),(300,350),10)
+        pg.draw.line(window,preto,(300,250),(300,350),10)
     if chance >= 3:
-        pg.draw.circle(window,preto,(300,260),(225,350),10)
+        pg.draw.line(window,preto,(300,260),(225,350),10)
     if chance >= 4:
-        pg.draw.circle(window,preto,(300,260),(375,350),10)
+        pg.draw.line(window,preto,(300,260),(375,350),10)
     if chance >= 5:
-        pg.draw.circle(window,preto,(300,350),(375,450),10)
+        pg.draw.line(window,preto,(300,350),(375,450),10)
     if chance >= 6:
-        pg.draw.circle(window,preto,(300,350),(225,450),10)
+        pg.draw.line(window,preto,(300,350),(225,450),10)
+
+def Desenho_restart_buttom(window):
+    pg.draw.rect(window,preto,(700,100,200,65))
+    texto = font_rb.render('Restart',True,branco)
+    window.blit(texto,(740,120))
+
+def Sorteando_Palavra(palavras,palavra_escolhida,end_game):
+    if end_game == True:
+        palavra_n = random.randint(0,len(palavras)-1)
+        palavra_escolhida = palavras[palavra_n]
+        end_game = False
+    return palavra_escolhida,end_game
+
+
 
 while True:
     for event in pg.event.get():
@@ -55,7 +69,7 @@ while True:
             print(letra)
 
     # Jogo
-    Desenho_da_Forca(window,1)
+    Desenho_da_Forca(window,2)
 
     pg.display.update()
 
