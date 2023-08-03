@@ -13,8 +13,8 @@ pg.font.init()
 # Escolhendo uma fonte e tamanho
 font = pg.font.SysFont('Courier New', 50)
 font_rb = pg.font.SysFont('Courier New', 30)
-
-palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA', 'INSPER', 'GIULIA', 'PEDRO', 'GUILHERME']
+font_inicial = pg.font.SysFont('Courier New', 15)
+palavras = ['PARALELEPIPEDO', 'ORNITORRINCO', 'APARTAMENTO', 'XICARA DE CHA', 'INSPER', 'GIULIA', 'PEDRO', 'GUILHERME','CACHORRO', 'BARBIE', 'MACIEL']
 
 
 
@@ -99,19 +99,19 @@ while iniciar:
         if event.type == pg.KEYDOWN:
             iniciar = False
     pg.draw.rect(window, branco, (0, 0, 1000, 600))
-    pg.display.update()
-    texto = font_rb.render('Objetivo: Adivinhar uma palavra ou frase antes de um boneco ser desenhado na forca',True,preto)
+    texto = font_inicial.render('Objetivo: Adivinhar uma palavra ou frase antes de um boneco ser desenhado na forca',True,preto)
     window.blit(texto,(100,75))
-    texto = font_rb.render('Regras: O adversário escolhe a palavra e desenha espaços em branco para cada letra.',True,preto)
+    texto = font_inicial.render('Regras: O adversário escolhe a palavra e desenha espaços em branco para cada letra.',True,preto)
     window.blit(texto,(100,150))
-    texto = font_rb.render('Acertos: Letras corretas são preenchidas nas posições corretas.',True,preto)
+    texto = font_inicial.render('Acertos: Letras corretas são preenchidas nas posições corretas.',True,preto)
     window.blit(texto,(100,225))
-    texto = font_rb.render('Erros: Letras erradas são listadas e uma parte do boneco enforcado é desenhada.',True,preto)
+    texto = font_inicial.render('Erros: Letras erradas são listadas e uma parte do boneco enforcado é desenhada.',True,preto)
     window.blit(texto,(100,300))
-    texto = font_rb.render('Vitória: O jogador ganha se adivinhar a palavra antes do boneco estar completo.',True,preto)
+    texto = font_inicial.render('Vitória: O jogador ganha se adivinhar a palavra antes do boneco estar completo.',True,preto)
     window.blit(texto,(100,375))
-    texto = font_rb.render('Derrota: O jogador perde se o boneco estiver desenhado antes da palavra ser adivinhada.',True,preto)
+    texto = font_inicial.render('Derrota: O jogador perde se o boneco estiver desenhado antes da palavra ser adivinhada.',True,preto)
     window.blit(texto,(100,450))
+    pg.display.update()
    
 while True:
     for event in pg.event.get():
